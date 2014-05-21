@@ -4,22 +4,45 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.RelativeLayout;
+import android.os.Bundle;
+import android.app.Activity;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.view.View;
+
+
 
 public class splashscreen extends Activity {
 
-    private final int SPLASH_DISPLAY_LENGHT = 1000;
+    PaintView pV;
+    RelativeLayout rlsplash;
+
+    private final int SPLASH_DISPLAY_LENGHT = 1400;
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.splashscreen);
+
+        pV=new PaintView(this);
+        rlsplash=(RelativeLayout)findViewById(R.id.rlsplash);
+        pV=new PaintView(this);
+        rlsplash.addView(pV);
+
+
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
@@ -33,27 +56,44 @@ public class splashscreen extends Activity {
             }
         }, SPLASH_DISPLAY_LENGHT);
     }
+
+
+
+
+
+    public class PaintView extends View {
+        private static final String Text = "MoneyFish";
+        private Path myArc;
+        private Paint mPaintText;
+
+        public PaintView(Context context) {
+            super(context);
+            //create Path object
+            myArc = new Path();
+            //create RectF Object
+            RectF oval = new RectF(50,100,200,250);
+            //add Arc in Path with start angle -180 and sweep angle 200
+            myArc.addArc(oval, -180, 200);
+            //create paint object
+            mPaintText = new Paint(Paint.ANTI_ALIAS_FLAG);
+            //set style
+            mPaintText.setStyle(Paint.Style.FILL_AND_STROKE);
+            //set color
+            mPaintText.setColor(Color.BLACK);
+            //set text Size
+            mPaintText.setTextSize(50f);
+
+        }
+        @Override
+        protected void onDraw(Canvas canvas) {
+            //Draw Text on Canvas
+            canvas.drawTextOnPath(Text, myArc, 0, 20, mPaintText);
+            invalidate();
+        }
+    }
+
+
 }
 
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-*/
 
