@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainback">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration between Pings"
+        android:id="@+id/mainLabel"
+        android:layout_marginLeft="50dp"
+        android:textSize="25sp"
+        android:layout_marginTop="100dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/min"
+        android:text="minutes"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="160dp"
+        android:textSize="30dp"
+        android:layout_marginRight="60dp"/>
+
+
+    <Spinner
+        android:id="@+id/spinner1"
+
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_below="@id/mainLabel"
+        android:layout_marginLeft="50dp"
+        android:textSize="20dp"/>
+
+
+
+<Button
+    android:id="@+id/btnStart"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Start Gathering Data"
+    android:layout_centerHorizontal="true"
+    android:textSize="30sp"
+    android:gravity="bottom"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="80dp"
+    android:onClick="true"/>
+
+
+</RelativeLayout>

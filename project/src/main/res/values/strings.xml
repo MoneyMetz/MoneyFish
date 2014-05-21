@@ -4,5 +4,6 @@
     <string name="app_name">MoneyFish</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <color name="mainback">#99CCFF</color>
 
 </resources>
