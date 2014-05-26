@@ -29,6 +29,7 @@ public class main extends Activity {
             case R.id.btnStart:
                 Intent i = new Intent(getApplicationContext(), gathering.class);
                 startActivity(i);
+                break;
         }
     }
 
