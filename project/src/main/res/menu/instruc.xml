@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.cal.moneyfish.project.main" >
-    
-    <item android:id="@+id/action_settings"
-        android:title="Instructions"
+    tools:context="com.cal.moneyfish.project.Instructions" >
+
+    <item android:id="@+id/instruct"
+        android:title="Back"
         android:orderInCategory="100"
         app:showAsAction="never" />
 </menu>

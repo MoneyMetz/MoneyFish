@@ -3,6 +3,8 @@ package com.cal.moneyfish.project;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -33,7 +35,7 @@ public class main extends Activity {
         }
     }
 
-/*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -49,10 +51,12 @@ public class main extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent in = new Intent(getApplicationContext(),Instructions.class);
+            startActivity(in);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-*/
+
 
 }
