@@ -1,18 +1,12 @@
 package com.cal.moneyfish.project;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
-import android.os.Bundle;
-import android.app.Activity;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -20,14 +14,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.view.View;
 
 
+public class Splashscreen extends Activity {
 
-public class splashscreen extends Activity {
-
-    PaintView pV;
-    RelativeLayout rlsplash;
+   // PaintView pV;
+   // RelativeLayout rlsplash;
 
     private final int SPLASH_DISPLAY_LENGHT = 1400;
 
@@ -36,12 +28,12 @@ public class splashscreen extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.splashscreen);
-
+/*
         pV=new PaintView(this);
         rlsplash=(RelativeLayout)findViewById(R.id.rlsplash);
         pV=new PaintView(this);
         rlsplash.addView(pV);
-
+*/
 
 
         /* New Handler to start the Menu-Activity
@@ -50,9 +42,9 @@ public class splashscreen extends Activity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(splashscreen.this,main.class);
-                splashscreen.this.startActivity(mainIntent);
-                splashscreen.this.finish();
+                Intent mainIntent = new Intent(Splashscreen.this,Main.class);
+                Splashscreen.this.startActivity(mainIntent);
+                Splashscreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGHT);
     }
@@ -60,7 +52,7 @@ public class splashscreen extends Activity {
 
 
 
-
+/*
     public class PaintView extends View {
         private static final String Text = "MoneyFish";
         private Path myArc;
@@ -92,7 +84,7 @@ public class splashscreen extends Activity {
         }
     }
 
-
+*/
 }
 
 

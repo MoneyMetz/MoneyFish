@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.parse.Parse;
-import com.parse.ParseAnalytics;
 import com.parse.ParseObject;
 
 /**
  * Created by Jon on 5/16/2014.
  */
-public class gathering extends Activity {
+public class Gathering extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +27,18 @@ public class gathering extends Activity {
     public void onButtonClick(View v){
         switch(v.getId()){
             case R.id.btnStopData:
-                Intent i = new Intent(getApplicationContext(), main.class);
+                Intent i = new Intent(getApplicationContext(), Main.class);
                 startActivity(i);
                 break;
         }
     }
 
+//TODO
+//need to make a service that will run when the app is not active
+//but is still running in the background, if the app is closed
+//then the service stops running.
 
+    //service will get the gpsPoint and push it to the DB
+    //longitude and latitude.
 
 }

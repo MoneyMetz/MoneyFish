@@ -12,7 +12,7 @@ import android.widget.Spinner;
 /**
  * Created by Jon on 5/16/2014.
  */
-public class main extends Activity {
+public class Main extends Activity {
 
 
 
@@ -29,7 +29,7 @@ public class main extends Activity {
     public void onButtonClick(View v){
         switch(v.getId()){
             case R.id.btnStart:
-                Intent i = new Intent(getApplicationContext(), gathering.class);
+                Intent i = new Intent(getApplicationContext(), Gathering.class);
                 startActivity(i);
                 break;
         }

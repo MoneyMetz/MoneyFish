@@ -34,7 +34,7 @@ public class Instructions extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.instruct) {
-            Intent in = new Intent(getApplicationContext(),main.class);
+            Intent in = new Intent(getApplicationContext(),Main.class);
             startActivity(in);
             return true;
         }
