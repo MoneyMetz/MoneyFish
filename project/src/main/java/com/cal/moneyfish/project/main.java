@@ -1,18 +1,23 @@
 package com.cal.moneyfish.project;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * Created by Jon on 5/16/2014.
  */
-public class main extends Activity {
+public class Main extends Activity {
 
 
 
@@ -24,17 +29,8 @@ public class main extends Activity {
             String[] items = new String[]{"3", "5", "10"};
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
             dropdown.setAdapter(adapter);
-        }
 
-    public void onButtonClick(View v){
-        switch(v.getId()){
-            case R.id.btnStart:
-                Intent i = new Intent(getApplicationContext(), gathering.class);
-                startActivity(i);
-                break;
         }
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,6 +52,54 @@ public class main extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private ServiceConnection mConnection = new ServiceConnection()
+    {
+        public void onServiceConnected(ComponentName className, IBinder binder)
+        {
+            Toast.makeText(Main.this, "Connected to the service", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
+        public void onServiceDisconnected(ComponentName className)
+        {
+            Toast.makeText(Main.this, "Disconnected from the service", Toast.LENGTH_SHORT)
+                    .show();
+        }
+    };
+
+
+
+    private boolean mIsBound = false;
+
+    public void onButtonClick(View v)
+    {
+        switch (v.getId())
+        {
+
+
+            case R.id.btnStart:
+                //bind allows the passing of info
+                doBindService();
+                //starting service
+                startService(new Intent(Main.this, GPS.class));
+                //start next activity
+                Intent i = new Intent(getApplicationContext(), Gathering.class);
+                startActivity(i);
+                break;
+
+            default:
+        }
+    }
+
+
+
+    void doBindService()
+    {
+        mIsBound = true;
+        bindService(new Intent(this, GPS.class), mConnection, Context.BIND_AUTO_CREATE);
     }
 
 

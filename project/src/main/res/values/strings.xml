@@ -9,5 +9,5 @@
     <color name="gather">#FFFF99</color>
     <color name="white">#D6D6D6</color>
     <string name="instr">This app is designed to capture your location for the time interval that you have selected. Then we will store it for farther research use by Cal Buelo.</string>
-
+    <string name="cancel">Canceling Service</string>
 </resources>
