@@ -92,8 +92,10 @@ package com.cal.moneyfish.project;
          * Else won't do anything
          * */
         //TODO
-        //need to check if there is a is a uid that matches the one in
-        // the shared preferences in the DB.
+        //check logged in flag to see if they already have a uid.
+        //if yes then get uid from shared preferences.
+        //if not then create new row in db and put new uid in shared preferences.
+        /*
          public void checkLogin(){
             // Check login status
             if(!this.isLoggedIn()){
@@ -110,6 +112,7 @@ package com.cal.moneyfish.project;
             }
 
         }
+*/
 
 
 
@@ -124,37 +127,9 @@ package com.cal.moneyfish.project;
             return user;
         }
 
-        /**
-         * Clear session details
-         *
-         *
-         /
-         //TODO
-        public void logoutUser(){
-            // Clearing all data from Shared Preferences
-            editor.clear();
-            editor.commit();
 
-            // After logout redirect user to Loing Activity
-            Intent i = new Intent(_context, LoginActivity.class);
-            // Closing all the Activities
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-            // Add new Flag to start new Activity
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            // Staring Login Activity
-            _context.startActivity(i);
-        }
 
-        /**
-         * Quick check for login
-         * **/
-        // Get Login State
-        //TODO
-        public boolean isLoggedIn(){
-
-            return pref.getBoolean(IS_LOGIN, false);
-        }
     }
 
