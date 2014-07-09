@@ -11,6 +11,10 @@ public class Splashscreen extends Activity {
 
     private final int SPLASH_DISPLAY_LENGHT = 1400;
 
+
+
+
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
@@ -26,6 +30,8 @@ public class Splashscreen extends Activity {
                 /* Create an Intent that will start the Menu-Activity. */
                 Intent mainIntent = new Intent(Splashscreen.this,Main.class);
                 Splashscreen.this.startActivity(mainIntent);
+
+
                 Splashscreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGHT);

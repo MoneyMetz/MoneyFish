@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
 
 /**
  * Created by Jon on 5/16/2014.
@@ -28,22 +26,14 @@ public class Gathering extends Activity {
         //ParseObject testObject = new ParseObject("TestObject");
        // testObject.put("foo", "bar");
        // testObject.saveInBackground();
-
-
     }
-
-
-
 
 
     public void onButtonClick(View v){
         switch(v.getId()){
-
             case R.id.btnStopData:
-
                 doUnbindService();
                 stopService(new Intent(Gathering.this, GPS.class));
-
                 Intent i = new Intent(getApplicationContext(), Main.class);
                 startActivity(i);
                 break;
@@ -52,11 +42,10 @@ public class Gathering extends Activity {
 
     void doUnbindService()
     {
-        if (mIsBound)
+        if (Main.mIsBound)
         {
             unbindService(mConnection);
-            mIsBound = false;
-
+            Main.mIsBound = false;
             Toast.makeText(this, "Unbinding Service", Toast.LENGTH_SHORT).show();
         }
     }

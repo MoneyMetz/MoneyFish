@@ -17,11 +17,9 @@ public class GPS extends Service  {
 
     // An interface object used by clients to communicate with the service.
     private final IBinder mBinder = new MyBinder();
+    LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
+    boolean enabled = service.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
-    LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-    Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-    double longitude = location.getLongitude();
-    double latitude = location.getLatitude();
 
     @Override
     public void onCreate()
@@ -32,6 +30,11 @@ public class GPS extends Service  {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
+
+
+
+
+
         Toast.makeText(this, "Service Started", Toast.LENGTH_SHORT).show();
         return Service.START_STICKY;	// Service will be explicitly started and stopped as needed.
     }
@@ -46,10 +49,7 @@ public class GPS extends Service  {
     public class MyBinder extends Binder
     {
 
-        GPS getService()
-        {
-            return GPS.this;
-        }
+
 
     }
 
